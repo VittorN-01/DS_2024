@@ -9,7 +9,7 @@ public class Main {
 		System.out.println(quadrado1.altura);
 		quadrado1.base = 2;
 		System.out.println(quadrado1.base);
-		System.out.println("¡rea: "+quadrado1.calcularArea());
+		System.out.println("√Årea: "+quadrado1.calcularArea());
 		
 		
 		
@@ -18,7 +18,7 @@ public class Main {
 		System.out.println(quadrado2.altura);
 		quadrado2.base = 3;
 		System.out.println(quadrado2.base);
-		System.out.println("¡rea: "+quadrado2.calcularArea());
+		System.out.println("√Årea: "+quadrado2.calcularArea());
 		
 	}
 
