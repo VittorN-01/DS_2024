@@ -4,6 +4,7 @@ public class Cliente {
 	private String endereco;
 	private double valorPedido;
 	private double valorPromocional;
+	double desconto;
 	
 	//
 	public String getNome() {
@@ -35,13 +36,16 @@ public class Cliente {
 	}
 	//
 	public double getValorPromocinal() {
-		return valorPromocional;
+		return valorPromocional; 
 	}
 	public void setValorPromocional(double valorPromocional) {
 		this.valorPromocional = valorPromocional;
 	}
-	public double calculaDesconto( ){
-		return this.valorPedido * 0.10;
+	public double calculaDesconto(){
+		return valorPedido - desconto; 	 
 	}
-	
+	public double valorDesc() {
+		desconto = valorPedido -( valorPedido - this.valorPedido * 0.10); 
+		return desconto;
+	}
 }
