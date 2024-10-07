@@ -1,5 +1,8 @@
+import java.util.Scanner;
 public abstract class cGenerica implements Conta {
-    private String nome;
+    Scanner in = new Scanner(System.in);
+	
+	private String nome;
     private String cpf;
     protected double saldo; 
     private int senha;
@@ -41,27 +44,48 @@ public abstract class cGenerica implements Conta {
         return this.saldo;
     }
 
-    public void depositeValor(double v) {
-        if (senha != 1234) {
-            System.out.println("Senha incorreta. Não poderá depositar");
-        } else {
-            this.saldo += v; 
-            System.out.println("Depósito realizado com sucesso. Novo saldo: " + saldo);
-        }
-    }
+    public void depositeValor() {
+        System.out.print("Valor para depósito: ");
+        double v = in.nextDouble();
+        boolean senhaCorreta = false;
+        
+        while (!senhaCorreta) {
+            System.out.print("Digite sua senha: ");
+            int tentativaSenha = in.nextInt();
 
-    public void sacarValor(double v) {
-        if (senha != 1234) {
-            System.out.println("Senha incorreta. Não poderá sacar");
-        } else {
-            if (v > saldo) {
-                System.out.println("Valor de saque maior que o saldo.");
+            if (tentativaSenha != this.senha) {
+                System.out.println("Senha incorreta. Tente novamente.");
             } else {
-                this.saldo -= v; 
-                System.out.println("Saque realizado com sucesso. Novo saldo: " + saldo);
+                this.saldo += v;
+                System.out.println("Depósito realizado com sucesso. \nNovo saldo: " + saldo);
+                senhaCorreta = true;
             }
         }
     }
+
+    public void sacarValor() {
+    	System.out.print("Valor para saque: ");
+    	double v = in.nextDouble();
+        boolean senhaCorreta = false;
+        
+        while (!senhaCorreta) {
+            System.out.print("Digite sua senha: ");
+            int tentSenha = in.nextInt();
+
+            if (tentSenha != this.senha) {
+                System.out.println("Senha incorreta. Tente novamente.");
+            } else {
+                if (v > saldo) {
+                    System.out.println("Valor de saque maior que o saldo.");
+                } else {
+                    this.saldo -= v;
+                    System.out.println("Saque realizado com sucesso. \nNovo saldo: " + saldo);
+                }
+                senhaCorreta = true;
+            }
+        }
+    }
+
 
     public void verificarSaldo() {
         System.out.println("Saldo da conta: " + this.saldo);

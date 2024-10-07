@@ -9,7 +9,7 @@ public interface Conta {
     double getSaldo();
     
     // Métodos
-    void depositeValor(double v);
-    void sacarValor(double v);
+    void depositeValor();
+    void sacarValor();
     void verificarSaldo();	
 }
