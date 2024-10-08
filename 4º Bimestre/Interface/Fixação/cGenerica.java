@@ -21,7 +21,7 @@ public abstract class cGenerica implements Conta {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+    	this.nome = nome;
     }
 
     public String getCpf() {
@@ -86,6 +86,11 @@ public abstract class cGenerica implements Conta {
         }
     }
 
+    public void dadosConta() {
+    	System.out.println("Nome: " + this.nome);
+    	System.out.println("Cpf: " + this.cpf);
+    	System.out.println("Senha: " + this.senha);
+    }
 
     public void verificarSaldo() {
         System.out.println("Saldo da conta: " + this.saldo);
